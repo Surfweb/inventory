@@ -1,0 +1,42 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+
+
+
+    <div class="container">
+		<div class="row " style="padding-top: 20px"> 
+          <div class="col-md-2"></div>
+          <div class="col-md-8 ">
+           {# <p>{{ value }}</p> #}
+               <form action="." method="GET" id="search_form">
+                <div class="input-group" >
+                  <input type="text" class="form-control" placeholder="Search for..." name="q" />
+				  <span class="input-group-btn">
+                    <button class="btn btn-success glyphicon glyphicon-globe" type="button" id="click_search_btn" onkeypress="if(event.keyCode == 13) return false;" ></button>
+                  </span>
+                </div><!-- /input-group -->
+               
+				</form>
+          </div>
+          <div class="col-md-2">
+			<a class="btn btn-success" type="button">Добавить устройство</a>
+		  </div>
+
+		</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<table class="table table-bordered" id="result_search">
+							<tr>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+								<td>1</td>
+							</tr>
+						</table>
+					</div>
+			
+				<div class="col-md-2"></div>
+			</div>
+    </div>
+{% endblock %}
