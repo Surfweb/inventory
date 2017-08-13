@@ -22,12 +22,15 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 
 #Поддержка CSRF для AJAX POST
-from django.shortcuts import render_to_response
-from django.template.context_processors import csrf
+#from django.shortcuts import render_to_response
+#from django.template.context_processors import csrf
 #Для отключения проверки CSRF
-from django.views.decorators.csrf import csrf_exempt
+#from django.views.decorators.csrf import csrf_exempt
 
-from django.utils.decorators import method_decorator
+#from django.utils.decorators import method_decorator
+
+#Попытка реализации полнотекстового поиска: http://proft.me/2011/01/22/polnotekstovyj-poisk-v-django/
+from django.db.models import Q
 
 # Импортируем модель
 from inventory.models import Nodes
@@ -56,25 +59,15 @@ def inventory(request):
 		return render(request, 'inventory/inventory.html', context)
 
 # AJAX для inventory
-#@csrf_exempt
 def search(request):
 	if request.method == "GET":
-		src_ask = request.GET['q']
+		srch_ask = request.GET['q']
 		# Запрос в БД с поиском src_ask
 		# __icontains - регистронезависимоя проверка на вхождение: https://djbook.ru/rel1.9/ref/models/querysets.html#std:fieldlookup-icontains 
-		get_nodes = Nodes.objects.all().filter(hostname__icontains=""+src_ask+"")
-		#result = get_nodes.ip
-		return HttpResponse(get_nodes, content_type="text/html")
-		#return render(request, 'inventory/inventory.html', {'result': result})
-	#if request.method == "GET":
-		#search_request = request.POST['search_request']
-		#two = request.GET['sity']
+		result = Nodes.objects.all().filter(Q(hostname__icontains=""+srch_ask+"") | Q(ip__icontains=""+srch_ask+"") | Q(region__icontains=""+srch_ask+"") | Q(sity__icontains=""+srch_ask+"") | Q(description__icontains=""+srch_ask+""))
+		#return HttpResponse(get_nodes, content_type="text/html")
+		return render(request, 'inventory/search_result.html', {'result': result})
 		#result = [one, two]
-		#Запрос в БД по текущему реквесту
-		#result = "hi"
-        # то, что прийдет в result  - отправим в БД
-	        #return HttpResponse(result, content_type="text/html")
-	        #return render_to_response("inventory/inventory.html", request)
 
 
 			

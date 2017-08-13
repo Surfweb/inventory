@@ -1,0 +1,21 @@
+
+<table class="table table-bordered" id="result_search" style="margin-top: 20px">
+<tr>
+	<th>ip</th>
+	<th>Hostname</th>
+	<th>Region</th>
+	<th>Sity</th>
+	<th>Site</th>
+	<th>Description</th>
+</tr>
+{% for node in result %}
+    <tr>
+		<td>{{ node.ip }}</td>
+		<td>{{ node.hostname }}</td>
+		<td>{{ node.region }}</td>
+		<td>{{ node.sity }}</td>
+		<td>{{ node.site }}</td>
+		<td>{{ node.description }}</td>
+	</tr>
+{% endfor %}
+</table>

@@ -11,4 +11,4 @@ class Nodes(models.Model):
     description = models.TextField()
     
     def __str__(self):
-        return "<tr><td>"+self.ip + "</td><td>" + self.hostname + "</td><td>" + self.region + "</td><td>" + self.sity + "</td><td>" + self.description + "</td><tr>"
+		return self.hostname
