@@ -1,5 +1,5 @@
 
-<table class="table table-bordered" id="result_search" style="margin-top: 20px">
+<table class="table table-bordered" style="margin-top: 20px">
 <tr>
 	<th>ip</th>
 	<th>Hostname</th>
@@ -15,7 +15,7 @@
 		<td>{{ node.region }}</td>
 		<td>{{ node.sity }}</td>
 		<td>{{ node.site }}</td>
-		<td>{{ node.description }}</td>
+		<td class="inventory_description">{{ node.description }}</td>
 	</tr>
 {% endfor %}
 </table>

@@ -9,6 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sfera</title>
+		<!-- CSS для поиска в select: Плагин Chosen -->
+	<link rel="stylesheet" href="{% static 'inventory/chosen/docsupport/style.css' %}">
+	<link rel="stylesheet" href="{% static 'inventory/chosen/docsupport/prism.css' %}">
+	<link rel="stylesheet" href="{% static 'inventory/chosen/chosen.css' %}">
+	<!-- END CSS для поиска в select: Плагин Chosen -->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	 
@@ -16,6 +21,7 @@
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 	  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	
 
       <!-- -->
         {# <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu"> #}
@@ -61,5 +67,11 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="{% static 'inventory/inventory.js' %}"></script>
+	
+	<!-- JS для поиска в select: Плагин Chosen -->
+	<script src="{% static 'inventory/chosen/chosen.jquery.js' %}" type="text/javascript"></script>
+	<script src="{% static 'inventory/chosen/docsupport/prism.js' %}" type="text/javascript" charset="utf-8"></script>
+	<script src="{% static 'inventory/chosen/docsupport/init.js' %}" type="text/javascript" charset="utf-8"></script>
+	<!-- END JS для поиска в select: Плагин Chosen -->
   </body>
 </html>

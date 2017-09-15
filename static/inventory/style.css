@@ -23,7 +23,10 @@ body {
 /* End Login Form */
 
 /* invenroty/ */
-
+.chosen-container{
+  width: 100% !important;
+}
 
 
 /* End invenroty/ */
+

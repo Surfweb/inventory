@@ -11,4 +11,4 @@ class Nodes(models.Model):
     description = models.TextField()
     
     def __str__(self):
-		return self.hostname
+	    return self.hostname

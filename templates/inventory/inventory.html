@@ -12,14 +12,14 @@
                 <div class="input-group" >
                   <input type="text" class="form-control" placeholder="Search for..." name="q" />
 				  <span class="input-group-btn">
-                    <button class="btn btn-success glyphicon glyphicon-globe" type="button" id="click_search_btn" onkeypress="if(event.keyCode == 13) return false;" ></button>
+                    <button class="btn btn-success glyphicon glyphicon-globe" type="button" id="click_search_btn"></button>
                   </span>
                 </div><!-- /input-group -->
                
 				</form>
           </div>
           <div class="col-md-2">
-			<a class="btn btn-success" type="button">Добавить устройство</a>
+			<a class="btn btn-success" type="button" href="#new_node" data-toggle="modal">Добавить устройство</a>
 		  </div>
 
 		</div>
@@ -31,4 +31,57 @@
 				<div class="col-md-2"></div>
 			</div>
     </div>
+	
+	<!-- Модальное окно: Новая нода -->
+	<div id="new_node" class="modal fade">
+	  <div class="modal-dialog">
+		<div class="modal-content">
+		  <!-- Заголовок модального окна -->
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h4 class="modal-title">Новое устройство</h4>
+		  </div>
+		  <!-- Основное содержимое модального окна -->
+		  <div class="modal-body">
+			<form>
+				<div class="form-group row">
+					<label for="inputIp" class="col-sm-2 control-label">ip</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="node_ip" placeholder="ip">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="inputHostname" class="col-sm-2 control-label">Hostname</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" id="node_hostname" placeholder="ip">
+					</div>
+				</div>
+				<!-- 
+				Обработка селектов выбора локации устройства.
+				1. После загрузки страницы, получить json содержащий все Point of Present. 
+				2.
+				-->
+				<div class="form-group row">
+					<label for="selectRegion" class="col-sm-2 control-label">Region</label>
+					<div class="col-sm-9">
+						<select data-placeholder="Choose a country..." style="width:350px;" multiple class="chosen-select">
+						  <option value=""></option> 
+						  <option value="United States">United States</option>
+						  <option value="United Kingdom">United Kingdom</option>
+						  ...
+						</select>
+						
+					</div>
+				</div>
+			</form>
+		  </div>
+
+		  <!-- Футер модального окна -->
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+			<button type="button" class="btn btn-primary">Сохранить изменения</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
 {% endblock %}

@@ -40,4 +40,6 @@ $( document ).ready(function() {
             });
        });
 
+	   var field = $('#list').find('option');
+	$(".chosen-container ").css({width: "95%"});
 });
