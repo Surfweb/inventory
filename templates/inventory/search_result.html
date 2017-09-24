@@ -1,4 +1,4 @@
-
+<!--
 <table class="table table-bordered" style="margin-top: 20px">
 <tr>
 	<th>ip</th>
@@ -19,3 +19,25 @@
 	</tr>
 {% endfor %}
 </table>
+-->
+<div style="margin-top: 20px">
+	{% for node in result %}
+	<div class="row">
+		<div class="col-xs-1">
+				<span class="glyphicon glyphicon-cog" style="margin-top: 13px"></span>
+		</div>
+		<div class="col-xs-6" style="margin-left: -35px"> 
+		
+				<h4> <a href="node/{{ node.hostname }}/">{{ node.hostname }}</a></h4>
+				<p><span style="color:green">{{ node.region }} / {{ node.sity }} / {{ node.site }}</span> | lo: <span style="color:gray">{{ node.ip }}</span></p>
+				<p><span class="">{{ node.description }}</span></p>
+		</div>
+		<div class="input-group col-xs-5">
+		<p style="margin-top:10px">Фото: <a href="">path/to/photo</a></p>
+		<p>Монтаж: 10.06.2018</p>
+		<p>Свободных портов: <br><a href="">[100G=15; 10G=30; 1G-Opt=10; 1G-Cup=0]</a></p>
+		
+		</div>
+	</div>
+	{% endfor %}
+</div>

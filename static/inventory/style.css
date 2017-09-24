@@ -4,7 +4,19 @@ body {
   /*opacity: 0.6;
   background: #000;*/
 }
+	
+.form-control{
+	-webkit-appearance: none;
+	-webkit-border-radius: 0;
+       -moz-border-radius: 0;
+            border-radius: 0;
+			 appearance: none;
+}
 
+select.form-control {
+  -webkit-border-radius: 0px;
+  -webkit-appearance: none;
+}
 
 /* Login Form */
 

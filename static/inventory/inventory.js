@@ -1,4 +1,6 @@
+// Поиск по инвентори
 $( document ).ready(function() {
+	
 	//Обработчик для клика по кнопке
 	 $("#search_form").click(function(event){
        var form_data = $("#search_form").serialize(); //Формируем массив
@@ -39,7 +41,19 @@ $( document ).ready(function() {
                     }
             });
        });
-
-	   var field = $('#list').find('option');
-	$(".chosen-container ").css({width: "95%"});
+       
+       	//Добавление новой ноды
+	$("#btn_new_node").click(function(event){
+		var add_new_node = $("#new_node_form").serialize(); //Формируем массив
+		console.log( add_new_node );
+	 	$.ajax({
+                 type:"GET",
+                 url:"new_node/",
+                 data: add_new_node ,
+                 success: function(data){
+                     $("#result_new_node").html(data) 
+                    }
+        });
+	});
+	
 });

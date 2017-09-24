@@ -3,7 +3,8 @@
 from django.shortcuts import render
 
 # Create your views here.
-
+# Для постраничного пролистывания
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 from django.views.generic.edit import FormView
 
@@ -14,7 +15,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
 
 # Выход
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.views.generic.base import View
 from django.contrib.auth import logout
 
@@ -77,6 +78,9 @@ def hello(request):
 	else:
 		return redirect('/dashboard/')
 
+
+
+
 # Авторизация
 class LoginFormView(FormView):
 	form_class = AuthenticationForm
@@ -99,3 +103,36 @@ class LogoutView(View):
 		logout(request)
 		# После чего, перенаправляем пользователя на главную страницу.
 		return HttpResponseRedirect("/login/")
+
+
+	
+		
+# Добавляем новую ноду
+def new_node(request):
+	data = {
+			'description': "Добавление нового устрйства",
+		}
+	return render(request, 'inventory/new_node.html', data)
+
+	
+def new_site(request):
+	data = {
+			'description': "Добавление новой площадки",
+		}
+	return render(request, 'inventory/new_site.html', data)
+
+def new_link(request):
+	data = {
+			'description': "Добавление нового канала",
+		}
+	return render(request, 'inventory/new_link.html', data)
+	
+# В даный момент эта вьюха доступна без авторизации...	
+def node(request, node, host):
+	host_data = result = Nodes.objects.get(hostname = host) # Получаем из БД всю инфу о ноде
+	# neighbors_data = Neighbors.objects.get(hostname = host) # Получаем из БД всю инфу о соседях ноды
+	data = {
+			'host': host_data,
+			#'neighbors': neighbors_data,
+		}
+	return render(request, 'inventory/node.html', data)
