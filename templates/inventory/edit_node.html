@@ -1,0 +1,36 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+	
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-6" >
+		
+		  <div class="form-group">
+			<label class="sr-only" for="inputHostname">Hostname</label>
+			<input type="email" class="form-control" id="inputHostname" placeholder="Hostname">{{host.hostname}}
+		  </div>
+		  
+		  <div class="form-group">
+			<label class="sr-only" for="inputIp">IP</label>
+			<input type="email" class="form-control" id="inputIp" placeholder="inputIp">{{host.ip}}
+		  </div>
+		  
+		  <div class="form-group">
+			<label class="sr-only" for="inputRegion">Регион</label>
+			<input type="email" class="form-control" id="inputRegion" placeholder="inputIp">{{host.region}}
+		  </div>
+		  
+		  <div class="form-group">
+			<label class="sr-only" for="inputSity">Город</label>
+			<input type="email" class="form-control" id="inputSity" placeholder="Город">{{host.sity}}
+		  </div>
+		  
+		  <div class="form-group">
+			<label class="sr-only" for="inputSite">Площадка</label>
+			<input type="email" class="form-control" id="inputSite" placeholder="Площадка">{{host.site}}
+		  </div>
+		
+		</div>
+		<div class="col-md-5"></div>
+	</div>
+{% endblock %}

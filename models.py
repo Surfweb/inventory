@@ -12,10 +12,37 @@ class Nodes(models.Model):
     sity = models.CharField(max_length=300)
     site = models.CharField(max_length=1500)
     description = models.TextField()
+	#neighbors = ...
     
     def __str__(self):
 	    return self.hostname
-	    
+
+# Список стран присутствия		
+class Country(models.Model):
+	code = models.CharField(max_length=300)
+	name = models.CharField(max_length=300)
+	
+# Список регионов / штатов присутствия		
+class Region(models.Model):
+	code = models.CharField(max_length=300)
+	name = models.CharField(max_length=300)
+	#origin = # Нужен выподающий список из class Country
+	
+# Список городов
+class Sity(models.Model):
+	code = models.CharField(max_length=300)
+	name = models.CharField(max_length=300)
+	#origin_country = # Нужен выподающий список из class Region
+	#origin_region = # Нужен выподающий список из class Region с фильтром по origin_country
+	
+# Список площадок
+class Site(models.Model):
+	code = models.CharField(max_length=300)
+	name = models.CharField(max_length=300)
+	#origin_country = # Нужен выподающий список из class Region
+	#origin_region = # Нужен выподающий список из class Region с фильтром по origin_country
+	#origin_sity = # Выподающий список из class Sity с фильтром по origin_region
+	
 # БД автономных систем
 #class As_db(models.Model):
 #	as_number = models.CharField(max_length=300)

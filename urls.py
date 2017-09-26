@@ -29,6 +29,7 @@ urlpatterns = [
     url(r'^dashboard/$', views.dashboard, name="dashboard"),# AJAX для формы поиска
 	url(r'^inventory/search/$', views.search, name="search"),
 	url(r'^inventory/(?P<node>\w+)/(?P<host>\w+)/$', views.node, name="node"),# Ссылка на карточку node
+	url(r'^inventory/(?P<node>\w+)/(?P<host>\w+)/(?P<edit>\w+)/$', views.node, name="node"),# Ссылка на карточку node
     url(r'^inventory/$', views.inventory, name="inventory"),# Вход и выход
 	url(r'^new_node/$', views.new_node, name="new_node"), 	# Добавление новой ноды
 	url(r'^new_link/$', views.new_link, name="new_link"),	# Добавление нового линка

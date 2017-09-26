@@ -128,11 +128,15 @@ def new_link(request):
 	return render(request, 'inventory/new_link.html', data)
 	
 # В даный момент эта вьюха доступна без авторизации...	
-def node(request, node, host):
+# Так же надо предусмотреть права доступа на редактирование
+def node(request, node, host, edit=None):
 	host_data = result = Nodes.objects.get(hostname = host) # Получаем из БД всю инфу о ноде
 	# neighbors_data = Neighbors.objects.get(hostname = host) # Получаем из БД всю инфу о соседях ноды
 	data = {
 			'host': host_data,
 			#'neighbors': neighbors_data,
 		}
-	return render(request, 'inventory/node.html', data)
+	if edit==None:
+		return render(request, 'inventory/node.html', data)
+	else:
+		return render(request, 'inventory/edit_node.html', data)
