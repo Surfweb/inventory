@@ -1,0 +1,23 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+    <div class="container">
+		<div class="row " style="padding-top: 20px"> 
+          
+          <div class="col-md-7 ">
+           {# <p>{{ value }}</p> #}
+               <form action="search/" method="GET">
+                <div class="input-group" >
+                  <input type="text" class="form-control" placeholder="Loopback, hostname or location address" name="request" />
+				  <span class="input-group-btn">
+                    <button  type="button" class="btn btn-default" >Найти</button>
+					
+                  </span>
+                </div><!-- /input-group -->
+               
+				</form>
+          </div>
+          <div class="col-md-5"></div>
+
+		</div>
+    </div>
+{% endblock %}

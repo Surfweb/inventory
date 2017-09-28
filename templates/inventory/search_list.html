@@ -1,0 +1,55 @@
+{% extends 'inventory/base.html' %}
+{% block content %}
+
+
+
+<div class="row" style="padding-top: 20px">
+	<div class="col-md-2"></div>
+	<div class="col-md-5">
+		<form action="." method="GET">
+            <div class="input-group" >
+              <input type="text" class="form-control" placeholder="Loopback, hostname or location address" name="request" value={{request}} />
+			  <span class="input-group-btn">
+                <button  type="button" class="btn btn-default" >Найти</button>
+              </span>
+            </div><!-- /input-group -->
+		</form>
+	</div>
+	<div class="col-md-5"></div>
+</div>
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-8">
+		{% if not result%}
+			<p>ничего нет..</p>
+		{% else %}
+			<table class="table table-bordered" style="margin-top: 20px">
+			<tr>
+				<th>Country</th>
+				<th>Loopback</th>
+				<th>Hostname</th>
+				<th>Region</th>
+				<th>Sity</th>
+				<th>Site</th>
+				<!--<th>Description</th>-->
+			</tr>
+			{% for node in result %} 
+				{% url 'node' node.hostname as url_hostname %}
+			    <tr>
+			    	<td>Country Flag</td>
+					<td>{{ node.ip }}</td>
+					<td><a href="{{url_hostname}}">{{ node.hostname }}</a></td>
+					<td>{{ node.region }}</td>
+					<td>{{ node.sity }}</td>
+					<td>{{ node.site }}</td>
+					<!--<td class="inventory_description">{{ node.description }}</td>-->
+				</tr>
+			{% endfor %}
+			</table>
+		{% endif %}
+	</div>
+	<div class="col-md-2"></div>
+</div>
+
+{% endblock %}

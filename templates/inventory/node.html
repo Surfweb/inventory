@@ -1,18 +1,138 @@
 {% extends 'inventory/base.html' %}
 {% block content %}
+<div class="container">
+	<div class="row">
+
+		<div class="col-md-12"><h1> {{host.hostname}} </h1></div>
+
+	</div>
+	<div class="row">
+
+		<div class="col-md-12">
+			<hr>
+				<h5>
+					<ul class="list-inline node_title" >
+						<li>ipv4 total: 20</li>
+						<li>ipv6 total: 20</li>
+						<li>vpn ipv4 total: 20</li>
+						<li>Ввод в эксплуатацию: 19.05.2018</li>
+					</ul>
+				</h5>
+			<hr>
+		</div>
+	</div>
 	
 	<div class="row">
-		<div class="col-md-1"></div>
-		<div class="col-md-6" >
-			<h1> Карточка устройства: {{host}}</h1>
-			<hr>
-			<p>Hostname: {{host.hostname}}</p>
-			<p>IP: {{host.ip}}</p>
-			<p>Регион: {{host.region}}</p>
-			<p>Город: {{host.region}}</p>
-			<p>Площадка: {{host.region}}</p>
-			<p>Описание: {{host.description}}</p>
+		
+		<div class="col-md-2">
+			<ul>
+				<li>All</li>
+				<li>Prefix</li> {# из БД network - сети терминатором которых является id данной ноды #}
+				<li>Service</li> {# Private VPN and Publick service detail #}
+				<li>Neighbos</li> {# IGP соседи для отрисовки карты #}
+				<li>Location</li> {# Адрес, контактная информация по площадке, фото, карта#}
+				<li>Sheme</li>	{# Схема сети с подсвеченой текущей нодой#}
+			</ul>
 		</div>
-		<div class="col-md-5"></div>
+		<div class="col-md-10" >
+			<div class="row">
+				<h2> Summary </h2>
+				<div class="col-md-5">
+					<dl class="dl-horizontal">
+						<dt><u>System id</u></dt>
+						<dd>{{host.id}}</dd>
+						<dt>Loopback</dt>
+						<dd>{{host.ip}}</dd>
+						<dt>Hostname</dt>
+						<dd>{{host.hostname}}</dd>
+						<dt>DNS</dt>
+						<dd>{{host.hostname}}.core.nss.com</dd>
+						<dt>Описание</dt>
+						<dd>{{host.description}}</dd>
+					</dl>
+				</div>
+				<div class="col-md-5">
+					<dl class="dl-horizontal">
+						<dt><u>Location</u></dt>
+						<dd>Запланирован</dd>
+						<dt>Регион</dt>
+						<dd>{{host.region}}</dd>
+						<dt>Город</dt>
+						<dd>{{host.sity}}</dd>
+						<dt>Площадка</dt>
+						<dd>{{host.site}} </dd>
+					</dl>
+				</div>
+		
+
+			
+			</div>
+		<!--	<hr>
+			<div class="row">
+				<h2> Inventory </h2>
+				<div class="col-md-4">
+					<dl class="dl-horizontal">
+						<dt><u>Hardware</u></dt>
+						<dd></dd>
+						<dt>Chassi</dt>
+						<dd>Junipwe MX480</dd>
+						<dt>Slot 0</dt>
+						<dd>MPC 4* 100G <span>(i)</span></dd>
+						<dt>Slot 1</dt>
+						<dd>MPC 16* 10G <span>(i)</span></dd>
+						<dt>Slot 2</dt>
+						<dd>MPC 16* 1G <span>(b)</span></dd>
+					</dl>
+						
+				</div>
+				<div class="col-md-4">
+					<dl class="dl-horizontal">
+						<dt><u>Total interface</u></dt>
+						<dd></dd>
+						<dt>100G</dt>
+						<dd>2</dd>
+						<dt>10G</dt>
+						<dd>18</dd>
+						<dt>1G</dt>
+						<dd>33</dd>
+					</dl>
+				</div>
+				<div class="col-md-4">
+					<dl class="dl-horizontal">
+						<dt><u>Free interface</u></dt>
+						<dd></dd>
+						<dt>100G</dt>
+						<dd>0</dd>
+						<dt>10G</dt>
+						<dd>5</dd>
+						<dt>1G</dt>
+						<dd>10</dd>
+					</dl>
+				</div>
+			</div>-->
+			<hr>
+			<div class="row">
+				<h2> Services </h2>
+				<div class="col-md-6">
+					<dl class="dl-horizontal">
+						<dt><u>Private service</u></dt> <dd></dd>
+						<dt>VRF</dt> <dd>8</dd>
+						<dt>VPLS</dt> <dd>0</dd>
+						<dt>eVPN</dt> <dd>2</dd>
+						<dt>L2VPN</dt> <dd>2</dd>
+						<dt>Span</dt> <dd>1</dd>
+					</dl>
+				</div>
+				<div class="col-md-6">
+					<dl class="dl-horizontal">
+						<dt><u>Public service</u></dt> <dd></dd>
+						<dt>Uplik</dt> <dd>5</dd>
+						<dt>Peers</dt> <dd>5</dd>
+						<dt>Internet</dt> <dd>12</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
 	</div>
+</div>
 {% endblock %}
